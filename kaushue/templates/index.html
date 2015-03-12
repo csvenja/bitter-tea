@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bitter Tea</title>
+</head>
+<body>
+	<h1>Your cup, please.</h1>
+{% if page_list %}
+	<ul>
+	{% for page in page_list %}
+		<li><a href="{% url 'detail' page.id %}">{{ page.title }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No questions are available.</p>
+{% endif %}
+</body>
+</html>

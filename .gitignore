@@ -55,4 +55,7 @@ target/
 
 # Sensitive information
 bittertea/settings_secret.py
+
+# Database
 *.sqlite3
+migrations/
