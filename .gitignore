@@ -52,3 +52,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Sensitive information
+bittertea/settings_secret.py
+*.sqlite3
