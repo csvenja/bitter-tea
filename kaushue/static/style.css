@@ -1,0 +1,55 @@
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "Source Han Sans CN", sans-serif;
+    margin: auto;
+    padding: 50px;
+    width: 900px;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #4A90E2;
+}
+
+.reference-list {
+    list-style-type: square;
+    list-style-position: inside;
+    color: #F5A623;
+    margin-left: 25px;
+}
+
+.reference {
+    font-size: 30px;
+    font-weight: bold;
+    color: #F5A623;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.reference:hover {
+    color: #F8C744;
+}
+
+.question-list {
+    list-style-type: none;
+}
+
+.question-list > li {
+    margin-bottom: 8px;
+}
+
+.question {
+    font-size: 20px;
+    font-weight: bold;
+    color: #F5A623;
+    text-decoration: none;
+}
+
+.question:hover {
+    color: #F8C744;
+}
+
+p {
+    font-size: 24px;
+    margin-left: 30px;
+}
