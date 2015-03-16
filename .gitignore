@@ -59,3 +59,8 @@ bittertea/settings_secret.py
 # Database
 *.sqlite3
 migrations/
+
+# Deployment
+bin/
+local/
+gunicorn.conf
