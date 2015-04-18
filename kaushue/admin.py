@@ -1,4 +1,5 @@
 from django.contrib import admin
-from kaushue.models import Page
+from kaushue.models import Question, Connection
 
-admin.site.register(Page)
+admin.site.register(Question)
+admin.site.register(Connection)
