@@ -25,7 +25,7 @@ function set_focus(element) {
 function request_partial(address) {
 	$.get(address, function (data) {
 		var new_article = $("<article></article>").append(data);
-		new_article.click(click_function);
+		new_article.find(".reference").click(click_function);
 		$("#content").append(new_article);
 	});
 }
