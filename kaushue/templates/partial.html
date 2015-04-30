@@ -1,7 +1,10 @@
 <h1>{{ question.title }}</h1>
 <ul class="reference-list">
-{% for reference in question.reference.all %}
-    <li><a class="reference" href="{% url 'partial' reference.id %}">{{ reference.title }}</a></li>
+{% for reference in references %}
+    <li>
+        <a class="reference" href="{% url 'partial' reference.id %}">{{ reference.title }}</a>
+        <span class="logic">{{ reference.logic }}</span>
+    </li>
 {% endfor %}
 </ul>
 <p>{{ question.content }}</p>
