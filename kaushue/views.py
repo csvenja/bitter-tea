@@ -11,3 +11,8 @@ def index(request):
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'detail.html', {'question': question})
+
+
+def partial(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'partial.html', {'question': question})
