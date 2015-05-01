@@ -45,7 +45,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'bittertea.urls'
 
-WSGI_APPLICATION = 'bittertea.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database
