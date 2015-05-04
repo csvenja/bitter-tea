@@ -1,33 +1,80 @@
+/* border box */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "Source Han Sans CN", sans-serif;
-    margin: auto;
-    padding: 50px;
-    width: 900px;
+    margin: 0;
+    padding: 0 100px;
+    background-color: #f3f3f3;
+    height: 100%;
+    font-size: 18px;
+    line-height: 1.65em;
+
+    width: 100%;
+    overflow-x: scroll;
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 1.3em;
     font-weight: bold;
     color: #4A90E2;
+    margin: 0.6em 0;
+}
+
+#content {
+    height: 100%;
+    width: 600px;
+}
+
+article {
+    width: 400px;
+    float: left;
+    background-color: #fffaea;
+    border-left: 1px solid #ccc;
+    height: 100%;
+    padding: 10px 30px;
+    overflow: scroll;
+}
+
+article:last-child {
+    width: 600px;
+    background-color: white;
+    border-right: 1px solid #ccc;
+    font-size: 20px;
+    line-height: 1.65em;
 }
 
 .reference-list {
     list-style-type: square;
     list-style-position: inside;
     color: #F5A623;
-    margin-left: 25px;
+    margin-left: 4px;
 }
 
 .reference {
-    font-size: 30px;
+    font-size: 1.2em;
+    line-height: 1.7em;
     font-weight: bold;
     color: #F5A623;
     text-decoration: none;
-    margin-left: 10px;
+    margin-left: 8px;
 }
 
 .reference:hover {
     color: #F8C744;
+}
+
+.logic {
+    cursor: help;
 }
 
 .question-list {
@@ -50,6 +97,5 @@ h1 {
 }
 
 p {
-    font-size: 24px;
-    margin-left: 30px;
+    margin-left: 20px;
 }

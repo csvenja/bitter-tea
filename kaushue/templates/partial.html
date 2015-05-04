@@ -3,7 +3,7 @@
 {% for reference in references %}
     <li>
         <a class="reference" href="{% url 'partial' reference.id %}">{{ reference.title }}</a>
-        <span class="logic">{{ reference.logic }}</span>
+        <span class="logic" title="联系的逻辑属性">{{ reference.logic }}</span>
     </li>
 {% endfor %}
 </ul>
