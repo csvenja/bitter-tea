@@ -1,4 +1,7 @@
 from django.shortcuts import get_object_or_404, render
+from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 from kaushue.models import Question, Connection
 
 
@@ -38,3 +41,15 @@ def partial(request, question_id):
         'question': question,
         'references': references
     })
+
+
+@require_http_methods(['POST'])
+@csrf_exempt
+def edit(request, question_id):
+    question_id = int(question_id)
+    content = request.POST.get('content', None)
+    question = get_object_or_404(Question, pk=question_id)
+    print question
+    question.content = content
+    question.save()
+    return HttpResponse()

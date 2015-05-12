@@ -1,4 +1,4 @@
-function click_function() {
+function reference_click_function() {
 	clear_prev_reference($(this).parents("article"));
 	clear_focus();
 	set_focus($(this));
@@ -6,8 +6,19 @@ function click_function() {
 	return false;
 }
 
+function edit_click_function() {
+	$(this).next(".content").toggle();
+	$(this).nextAll(".edit-content").toggle();
+	return false;
+}
+
 function reference_binding() {
-	$(".reference").click(click_function);
+	$(".reference").click(reference_click_function);
+}
+
+function edit_binding() {
+	$(".edit").click(edit_click_function);
+	$(".edit-submit").click(save_content);
 }
 
 function clear_prev_reference(element) {
@@ -34,12 +45,29 @@ function update_width() {
 function request_partial(address) {
 	$.get(address, function (data) {
 		var new_article = $("<article></article>").append(data);
-		new_article.find(".reference").click(click_function);
+		new_article.find(".reference").click(reference_click_function);
+		new_article.find(".edit").click(edit_click_function);
+		new_article.find(".edit-submit").click(save_content);
 		$("#content").append(new_article);
 		update_width();
 	});
 }
 
+function save_content() {
+	var textarea = $(this).prev(".edit-pad");
+	var id = textarea.attr("data-id");
+	var content = textarea.val();
+	var edit = $(this).parent();
+	$.post("/edit/" + id + '/', { content: content }, function (data) {
+		edit.prev(".content").toggle();
+		edit.toggle();
+	})
+	.fail(function (error) {
+		console.log(error);
+	});
+}
+
 $(document).ready(function () {
 	reference_binding();
+	edit_binding();
 });

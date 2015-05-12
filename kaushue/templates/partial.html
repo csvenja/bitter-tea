@@ -7,4 +7,11 @@
     </li>
 {% endfor %}
 </ul>
-<p>{{ question.content }}</p>
+<div>
+    <a class="edit" href="">Edit</a>
+    <p class="content">{{ question.content }}</p>
+    <div class="edit-content">
+        <textarea class="edit-pad" type="text" data-id="{{ question.pk }}">{{ question.content }}</textarea>
+        <button class="edit-submit">Save</button>
+    </div>
+</div>
