@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block body_id %}page-new{% endblock %}
+
+{% block content %}
+
+<article>
+<h1>添加新问题</h1>
+
+{% if error %}
+<div class="error">
+    {{ error }}
+</div>
+{% endif %}
+
+<form action="{% url 'new' %}" method="POST">
+    <input name="title" placeholder="输入标题…" type="text" value="{{ title }}">
+    <textarea name="content" placeholder="输入内容…">{{ content }}</textarea>
+    {% csrf_token %}
+    <input type="submit">
+</form>
+
+</article>
+
+{% endblock %}

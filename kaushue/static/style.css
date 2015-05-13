@@ -30,6 +30,42 @@ h1 {
     margin: 0.6em 0;
 }
 
+input[type=text] {
+    width: 100%;
+    font-size: 0.85em;
+    line-height: 1.5em;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    height: 320px;
+    font-size: 0.85em;
+    line-height: 1.5em;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.error,
+.info {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    color: #777;
+}
+.error {
+    border: 1px solid #E8B74E;
+    background-color: #FFFAD5;
+}
+.info {
+    border: 1px solid #3CA935;
+    background-color: #EBFFEA;
+}
+
 #content {
     height: 100%;
     width: 600px;
@@ -59,9 +95,8 @@ article > div {
 
 .edit {
     position: absolute;
-    left: -20px;
+    left: -15px;
     color: #F5A623;
-    text-transform: uppercase;
     font-size: 0.7em;
     font-weight: bold;
     text-decoration: none;
@@ -78,14 +113,7 @@ article > div {
 }
 
 .edit-pad {
-    display: block;
     margin-left: 20px;
-    width: 100%;
-    height: 320px;
-    font-size: 0.85em;
-    line-height: 1.5em;
-    border: 1px solid #ccc;
-    padding: 5px;
 }
 
 .edit-submit {
@@ -130,11 +158,21 @@ article > div {
     color: #F5A623;
     text-decoration: none;
 }
-
 .question:hover {
     color: #F8C744;
 }
 
+.question.new {
+    opacity: 0.5;
+}
+.question.new:hover {
+    opacity: 1;
+}
+
 p {
     margin-left: 20px;
+}
+
+#page-new input[type=text] {
+    margin-bottom: 10px;
 }

@@ -8,7 +8,7 @@
     <script src="{% static 'main.js' %}"></script>
 </head>
 
-<body>
+<body id="{% block body_id %}{% endblock %}">
     <div id="content">
         {% block content %}{% endblock %}
     </div>
