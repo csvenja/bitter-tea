@@ -53,6 +53,45 @@ article:last-child {
     line-height: 1.65em;
 }
 
+article > div {
+    position: relative;
+}
+
+.edit {
+    position: absolute;
+    left: -20px;
+    color: #F5A623;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    font-weight: bold;
+    text-decoration: none;
+    opacity: 0.5;
+}
+.edit:hover {
+    opacity: 1;
+}
+
+.edit-content {
+    display: none;
+    margin-top: 20px;
+    padding-top: 5px;
+}
+
+.edit-pad {
+    display: block;
+    margin-left: 20px;
+    width: 100%;
+    height: 320px;
+    font-size: 0.85em;
+    line-height: 1.5em;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.edit-submit {
+    margin-left: 20px;
+}
+
 .reference-list {
     list-style-type: square;
     list-style-position: inside;
