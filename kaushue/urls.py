@@ -7,5 +7,6 @@ urlpatterns = patterns(
     url(r'^(?P<question_id>\d+)/$', views.detail, name='detail'),
     url(r'^partial/(?P<question_id>\d+)/$', views.partial, name='partial'),
     url(r'^edit/(?P<question_id>\d+)/$', views.edit, name='edit'),
+    url(r'^questions/$', views.get_questions, name='get_questions'),
     url(r'^new/$', views.new, name='new'),
 )
