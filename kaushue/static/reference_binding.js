@@ -6,19 +6,8 @@ function reference_click_function() {
 	return false;
 }
 
-function edit_click_function() {
-	$(this).next(".content").toggle();
-	$(this).nextAll(".edit-content").toggle();
-	return false;
-}
-
 function reference_binding() {
 	$(".reference").click(reference_click_function);
-}
-
-function edit_binding() {
-	$(".edit").click(edit_click_function);
-	$(".edit-submit").click(save_content);
 }
 
 function clear_prev_reference(element) {
@@ -53,21 +42,6 @@ function request_partial(address) {
 	});
 }
 
-function save_content() {
-	var textarea = $(this).prev(".edit-pad");
-	var id = textarea.attr("data-id");
-	var content = textarea.val();
-	var edit = $(this).parent();
-	$.post("/edit/" + id + '/', { content: content }, function (data) {
-		edit.prev(".content").toggle();
-		edit.toggle();
-	})
-	.fail(function (error) {
-		console.log(error);
-	});
-}
-
 $(document).ready(function () {
 	reference_binding();
-	edit_binding();
 });
