@@ -154,14 +154,14 @@ article > div {
     cursor: help;
 }
 
-.remove-logic {
+.remove-reference {
     display: none;
     color: #F5A623;
     font-size: 0.7em;
     text-decoration: none;
     opacity: 0.5;
 }
-.remove-logic:hover {
+.remove-reference:hover {
     opacity: 1;
 }
 

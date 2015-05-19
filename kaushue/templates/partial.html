@@ -4,7 +4,7 @@
     <li>
         <a class="reference" href="{% url 'partial' reference.id %}">{{ reference.title }}</a>
         <span class="logic" title="联系的逻辑属性">{{ reference.logic }}</span>
-        <a class="remove-logic" href="">删除</a>
+        <a class="remove-reference" href="" data-to-id="{{ reference.id }}">删除</a>
     </li>
 {% endfor %}
 </ul>

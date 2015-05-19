@@ -83,6 +83,18 @@ def add_link(request):
     return HttpResponse()
 
 
+@require_http_methods(['POST'])
+@csrf_exempt
+def remove_link(request):
+    from_id = int(request.POST.get('from_id'))
+    to_id = int(request.POST.get('to_id'))
+    Connection.objects.get(
+        from_question=Question.objects.get(pk=from_id),
+        to_question=Question.objects.get(pk=to_id)
+    ).delete()
+    return HttpResponse()
+
+
 def new(request):
     if request.method == 'GET':
         return render(request, 'new.html')
