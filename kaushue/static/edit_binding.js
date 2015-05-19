@@ -1,19 +1,23 @@
 function edit_click_function() {
-	$(this).next(".content").toggle();
-	$(this).nextAll(".edit-content").toggle();
-	$(".remove-logic").toggle();
-	$(".add-reference").toggle();
+	toggle_edit(this);
 	return false;
+}
+
+function toggle_edit(sender) {
+	var article = $(sender).closest("article");
+	article.find(".content").toggle();
+	article.find(".edit-content").toggle();
+	article.find(".remove-logic").toggle();
+	article.find(".add-reference").toggle();
 }
 
 function save_content() {
 	var textarea = $(this).prev(".edit-pad");
 	var id = textarea.attr("data-id");
 	var content = textarea.val();
-	var edit = $(this).parent();
+	var that = this;
 	$.post("/edit/" + id + '/', { content: content }, function (data) {
-		edit.prev(".content").toggle();
-		edit.toggle();
+		toggle_edit(that);
 	})
 	.fail(function (error) {
 		console.log(error);

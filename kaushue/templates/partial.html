@@ -11,7 +11,7 @@
 <div class="add-reference">
     <select class="add-reference-select">
         {% for q in question_list %}
-        <option>{{ q.title }}</option>
+        <option value={{ q.pk }}>{{ q.title }}</option>
         {% endfor %}
     </select>
     <input class="add-reference-logic" type="text" placeholder="逻辑属性">
