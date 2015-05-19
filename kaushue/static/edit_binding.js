@@ -24,9 +24,29 @@ function save_content() {
 	});
 }
 
+function add_reference() {
+	var article = $(this).closest("article");
+	var from_id = article.find(".current-id").val()
+	var to_id = article.find(".add-reference-select").val()
+	var logic = article.find(".add-reference-logic").val()
+	console.log(from_id)
+	console.log(to_id)
+	console.log(logic)
+
+	var that = this;
+	$.post("/add_link/", {
+		from_id: from_id,
+		to_id: to_id,
+		logic: logic
+	}, function (data) {
+		toggle_edit(that);
+	})
+}
+
 function edit_binding() {
 	$(".edit").click(edit_click_function);
 	$(".edit-submit").click(save_content);
+	$(".add-reference-button").click(add_reference);
 }
 
 $(document).ready(function () {

@@ -70,6 +70,19 @@ def edit(request, question_id):
     return HttpResponse()
 
 
+@require_http_methods(['POST'])
+@csrf_exempt
+def add_link(request):
+    from_id = int(request.POST.get('from_id'))
+    to_id = int(request.POST.get('to_id'))
+    logic = request.POST.get('logic', None)
+    Connection.objects.create(
+        from_question=Question.objects.get(pk=from_id),
+        to_question=Question.objects.get(pk=to_id),
+        logic=logic)
+    return HttpResponse()
+
+
 def new(request):
     if request.method == 'GET':
         return render(request, 'new.html')
