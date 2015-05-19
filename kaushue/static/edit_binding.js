@@ -1,6 +1,8 @@
 function edit_click_function() {
 	$(this).next(".content").toggle();
 	$(this).nextAll(".edit-content").toggle();
+	$(".remove-logic").toggle();
+	$(".add-reference").toggle();
 	return false;
 }
 

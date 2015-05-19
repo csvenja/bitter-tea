@@ -4,9 +4,19 @@
     <li>
         <a class="reference" href="{% url 'partial' reference.id %}">{{ reference.title }}</a>
         <span class="logic" title="联系的逻辑属性">{{ reference.logic }}</span>
+        <a class="remove-logic" href="">删除</a>
     </li>
 {% endfor %}
 </ul>
+<div class="add-reference">
+    <select class="add-reference-select">
+        {% for q in question_list %}
+        <option>{{ q.title }}</option>
+        {% endfor %}
+    </select>
+    <input class="add-reference-logic" type="text" placeholder="逻辑属性">
+    <button class="add-reference-button">添加联系</button>
+</div>
 <div>
     <a class="edit" href="">编辑</a>
     <p class="content">{{ question.content }}</p>

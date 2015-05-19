@@ -31,17 +31,21 @@ def get_detail(question_id):
 
 def detail(request, question_id):
     question, references = get_detail(question_id)
+    question_list = Question.objects.all()
     return render(request, 'detail.html', {
         'question': question,
-        'references': references
+        'references': references,
+        'question_list': question_list,
     })
 
 
 def partial(request, question_id):
     question, references = get_detail(question_id)
+    question_list = Question.objects.all()
     return render(request, 'partial.html', {
         'question': question,
-        'references': references
+        'references': references,
+        'question_list': question_list,
     })
 
 
