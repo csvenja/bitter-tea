@@ -3,21 +3,25 @@ from django.contrib import admin
 from kaushue.models import Question, Connection
 from rest_framework import routers, serializers, viewsets
 
+
 # Serializers define the API representation.
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = ('title', 'content', 'reference')
 
+
 class ConnectionSerializer(serializers.Serializer):
     class Meta:
         model = Connection
         fields = ('from_question', 'to_question', 'logic')
 
+
 # ViewSets define the view behavior.
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
+
 
 class ConnectionViewSet(viewsets.ModelViewSet):
     queryset = Connection.objects.all()

@@ -3,7 +3,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from kaushue.models import Question, Connection
 
 
@@ -47,16 +47,6 @@ def partial(request, question_id):
         'references': references,
         'question_list': question_list,
     })
-
-
-@require_http_methods(['GET'])
-@csrf_exempt
-def get_questions(request):
-    question_list = Question.objects.all()
-    resp = {}
-    for question in question_list:
-        resp[question.id] = question.title
-    return JsonResponse(resp)
 
 
 @require_http_methods(['POST'])
