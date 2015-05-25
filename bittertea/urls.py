@@ -8,7 +8,8 @@ from rest_framework import routers, serializers, viewsets
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
-        fields = ('title', 'content', 'reference')
+        id = serializers.IntegerField(source='pk')
+        fields = ('id', 'title', 'content', 'reference')
 
 
 class ConnectionSerializer(serializers.Serializer):
