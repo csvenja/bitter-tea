@@ -4,11 +4,21 @@ from kaushue.models import Question, Connection
 from rest_framework import routers, serializers, viewsets
 
 
-# Serializers define the API representation.
-class QuestionSerializer(serializers.ModelSerializer):
+class ReferenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
-        id = serializers.IntegerField(source='pk')
+        fields = ('id', 'title')
+
+
+# Serializers define the API representation.
+class QuestionSerializer(serializers.ModelSerializer):
+    reference = ReferenceSerializer(
+        many=True,
+        read_only=True
+    )
+
+    class Meta:
+        model = Question
         fields = ('id', 'title', 'content', 'reference')
 
 
