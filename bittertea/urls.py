@@ -23,6 +23,16 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 
 class ConnectionSerializer(serializers.Serializer):
+    class NaiveSerializer(serializers.ModelSerializer):
+
+        class Meta:
+            model = Question
+            fields = ('id', )
+
+    from_question = NaiveSerializer()
+    to_question = NaiveSerializer()
+    logic = serializers.ReadOnlyField()
+
     class Meta:
         model = Connection
         fields = ('from_question', 'to_question', 'logic')
@@ -41,7 +51,7 @@ class ConnectionViewSet(viewsets.ModelViewSet):
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'questions', QuestionViewSet)
-router.register(r'connections', QuestionViewSet)
+router.register(r'connections', ConnectionViewSet)
 
 urlpatterns = patterns(
     '',

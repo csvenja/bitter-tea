@@ -15,3 +15,6 @@ class Connection(models.Model):
     from_question = models.ForeignKey(Question, related_name="from_question")
     to_question = models.ForeignKey(Question, related_name="to_question")
     logic = models.CharField(max_length=1000, blank=True)
+
+    def __unicode__(self):
+        return self.logic
