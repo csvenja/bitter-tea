@@ -92,4 +92,5 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_WHITELIST = (
     'localhost:9000',
+    'csvenja.github.io',
 )
