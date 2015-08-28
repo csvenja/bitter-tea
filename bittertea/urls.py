@@ -4,15 +4,18 @@ from kaushue.models import Question, Connection
 from rest_framework import routers, serializers, viewsets
 
 
-class ReferenceSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Question
-        fields = ('id', 'title')
-
-
-# Serializers define the API representation.
 class QuestionSerializer(serializers.ModelSerializer):
-    reference = ReferenceSerializer(
+    class ThroughSerializer(serializers.ModelSerializer):
+        id = serializers.ReadOnlyField(source='to_question.id')
+        title = serializers.ReadOnlyField(source='to_question.title')
+        # logic = serializers.ReadOnlyField()
+
+        class Meta:
+            model = Connection
+            fields = ('id', 'title', 'logic')
+
+    reference = ThroughSerializer(
+        source='connection_set',
         many=True,
         read_only=True
     )
@@ -38,7 +41,6 @@ class ConnectionSerializer(serializers.Serializer):
         fields = ('from_question', 'to_question', 'logic')
 
 
-# ViewSets define the view behavior.
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
